@@ -22,22 +22,22 @@ RUN wget https://archive.apache.org/dist/maven/maven-3/3.8.6/binaries/apache-mav
 WORKDIR /app
 
 # Copiamos solo el pom para aprovechar la caché
-COPY pom.xml .
+COPY pom.xml ./
 
 # Descargamos dependencias
-RUN mvn -B dependency:go-offline
+RUN mvn dependency:go-offline
 
 # Copiamos el código fuente
 COPY src ./src
 
 # Compilamos el proyecto (sin tests)
-RUN mvn -B clean package -DskipTests
+RUN mvn clean package -DskipTests
 
-# Copiamos el JAR generado en la etapa de build
-COPY --from=build /app/target/*.jar app.jar
+# Copiar el archivo JAR generado desde la etapa de compilación
+RUN cp /app/target/*.jar app.jar
 
 # Puerto interno del contenedor (debe coincidir con server.port)
-EXPOSE 8085
+EXPOSE 8086
 
 # Perfil por defecto (puedes cambiarlo o sobreescribirlo en docker run)
 ENV SPRING_PROFILES_ACTIVE=dev

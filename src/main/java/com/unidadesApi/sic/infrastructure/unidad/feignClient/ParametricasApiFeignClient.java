@@ -21,10 +21,7 @@ import com.unidadesApi.sic.config.FeignConfig;
  *  - /api/plCiudads
  *  - /api/plTipoUnidades
  */
-@FeignClient(
-    name = "parametricasApi",
-    url = "${url.service.client.path.parametricas}",
-    configuration = FeignConfig.class
+@FeignClient(name = "parametricasApi", url = "${url.service.client.path.parametricas}", configuration = FeignConfig.class
 )
 public interface ParametricasApiFeignClient {
 

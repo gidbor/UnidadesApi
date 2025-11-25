@@ -5,13 +5,13 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "PL_UNIDAD_ATENCION")
-@Data
-@Builder
+@Setter
+@Getter
 public class UnidadAtencion implements Serializable {
 
     private static final long serialVersionUID = 1L;

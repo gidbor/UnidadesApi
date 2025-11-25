@@ -25,10 +25,10 @@ CONTAINER_NAME="sic-sgrnpc-api-unidades"
 CONTAINER_IP="172.18.0.20"
 
 # Puerto interno = server.port de unidadesApi
-PORT_CONTAINER=8085
+PORT_CONTAINER=8086
 
 # Puerto externo en tu máquina (localhost)
-PORT_DOCKER=8085
+PORT_DOCKER=8086
 
 # Eliminar contenedor si existe
 if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
